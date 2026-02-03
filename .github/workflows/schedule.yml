@@ -1,4 +1,4 @@
-name: HourReminder Webhook Bot
+name: SheduleBot
 
 on:
   schedule:
@@ -26,4 +26,4 @@ jobs:
           ICLOUD_PASSWORD: ${{ secrets.ICLOUD_PASSWORD }}
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           CHECK_INTERVAL: 60
-        run: python bot.py
+        run: python main.py
