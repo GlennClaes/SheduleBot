@@ -1,8 +1,9 @@
-name: SheduleBot
+name: HourReminder Webhook Bot
 
 on:
   schedule:
-    - cron: '*/1 * * * *'   # Elke minuut checken
+    - cron: '*/1 * * * *'   # elke minuut checken
+  workflow_dispatch:        # maakt handmatige run mogelijk
 
 jobs:
   run-bot:
