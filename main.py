@@ -7,9 +7,9 @@ import requests
 from dotenv import load_dotenv
 
 # Load env variables
-ICLOUD_EMAIL = os.getenv("ICLOUD_EMAIL")
-ICLOUD_PASSWORD = os.getenv("ICLOUD_PASSWORD")
-DISCORD_WEBHOOK = os.getenv("DISCORD_WEBHOOK")
+ICLOUD_EMAIL = os.environ["ICLOUD_EMAIL"]
+ICLOUD_PASSWORD = os.environ["ICLOUD_PASSWORD"]
+DISCORD_WEBHOOK = os.environ["DISCORD_WEBHOOK"]
 CHECK_INTERVAL = 60  # seconden
 DATA_FILE = 'sent_events.json'
 
