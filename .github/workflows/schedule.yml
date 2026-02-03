@@ -1,0 +1,28 @@
+name: SheduleBot
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'   # Elke minuut checken
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install pyicloud requests python-dotenv
+
+      - name: Run HourReminder
+        env:
+          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+          ICLOUD_PASSWORD: ${{ secrets.ICLOUD_PASSWORD }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          CHECK_INTERVAL: 60
+        run: python bot.py
