@@ -1,29 +1,29 @@
-name: SheduleBot
+# name: SheduleBot
 
-on:
-  schedule:
-    - cron: '*/1 * * * *'   # elke minuut checken
-  workflow_dispatch:        # maakt handmatige run mogelijk
+# on:
+#   schedule:
+#     - cron: '*/1 * * * *'   # elke minuut checken
+#   workflow_dispatch:        # maakt handmatige run mogelijk
 
-jobs:
-  run-bot:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+# jobs:
+#   run-bot:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: 3.11
 
-      - name: Install dependencies
-        run: pip install pyicloud requests python-dotenv
+#       - name: Install dependencies
+#         run: pip install pyicloud requests python-dotenv
 
-      - name: Run HourReminder
-        env:
-          ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
-          ICLOUD_PASSWORD: ${{ secrets.ICLOUD_PASSWORD }}
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          CHECK_INTERVAL: 60
-        run: python main.py
+#       - name: Run HourReminder
+#         env:
+#           ICLOUD_EMAIL: ${{ secrets.ICLOUD_EMAIL }}
+#           ICLOUD_PASSWORD: ${{ secrets.ICLOUD_PASSWORD }}
+#           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+#           CHECK_INTERVAL: 60
+#         run: python main.py
